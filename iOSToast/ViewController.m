@@ -32,10 +32,34 @@
 
 - (IBAction)showToast:(UIButton *)sender {
     
+    JLToast *toast = [JLToast makeToast];
+    [toast SetToastWithString:@"My FirstViewController"
+                withToastTime:ToastTime_Long
+               withController:self];
+    
+    [toast show];
+    
+}
 
-    [[JLToast makeToast] showWithString:@"My First ViewController"
-                          withToastTime:ToastTime_Long
-                         withController:self];
+- (IBAction)showToast2:(UIButton *)sender {
+    
+    JLToast *toast = [JLToast makeToast];
+    [toast SetToastWithString:@"Show Tosat 2 "
+                withToastTime:ToastTime_Long
+               withController:self];
+    
+    [toast show];
+    
+}
+
+- (IBAction)showToast3:(UIButton *)sender {
+    
+    JLToast *toast = [JLToast makeToast];
+    [toast SetToastWithString:@"野野野野野  還是八仙好玩！！"
+                withToastTime:ToastTime_Long
+               withController:self];
+    
+    [toast show];
     
 }
 

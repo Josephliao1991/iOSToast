@@ -15,6 +15,9 @@
 
 @interface JLToast ()
 
+@property (nonatomic, assign) NSString          *string;
+@property (nonatomic, assign) ToastTime         toastTime;
+@property (nonatomic, assign) UIViewController  *controller;
 
 @end
 
@@ -28,9 +31,10 @@
     
     dispatch_once(&oncePredicate, ^{
         //
-        _sharedInstance = [[JLToast alloc] init];
+        _sharedInstance = [[JLToast alloc]init];
         
     });
+    
     
     return _sharedInstance;
     
@@ -40,24 +44,40 @@
     
     self = [super init];
     
+    _string         = @"";
+    _toastTime      = ToastTime_Short;
+    _controller     = nil;
     
     return self;
     
 }
 
+- (void)SetToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime withController:(UIViewController*)controller{
+    
+    _string         = string;
+    _toastTime      = toastTime;
+    _controller     = controller;
+    
+}
 
-
-- (void)showWithString:(NSString*)string withToastTime:(ToastTime)toastTime withController:(UIViewController*)controller{
+- (void)show{
+    
+    ToastView *toastBefore = [self isToasted];
+    if (toastBefore) {
+        NSLog(@"AllReady Tosat");
+//        [toastBefore removeFromSuperview];
+        [self releaseToast:toastBefore];
+    }
     
     UIView *myToastView  = [[ToastView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)
-                                                    withString:string];
+                                                    withString:_string];
     
-    myToastView.frame = CGRectMake(controller.view.frame.size.width/2 - myToastView.frame.size.width/2,
-                                   controller.view.frame.size.height*0.8,
+    myToastView.frame = CGRectMake(_controller.view.frame.size.width/2 - myToastView.frame.size.width/2,
+                                   _controller.view.frame.size.height*0.8,
                                    myToastView.frame.size.width,
                                    myToastView.frame.size.height);
     
-    [controller.view addSubview:myToastView];
+    [_controller.view addSubview:myToastView];
     
     [UIView animateWithDuration:0.3 animations:^{
         //
@@ -67,7 +87,7 @@
         //
         [self performSelector:@selector(releaseToast:)
                    withObject:myToastView
-                   afterDelay:toastTime == 0 ?TOAST_SHORT  :TOAST_LONG];
+                   afterDelay:_toastTime == 0 ?TOAST_SHORT  :TOAST_LONG];
         
     }];
 
@@ -92,5 +112,21 @@
     }
     
 }
+
+- (ToastView*)isToasted{
+    
+    NSArray *subViews = [[_controller view] subviews];
+    
+    for (id subView in subViews) {
+        
+        if ([subView isKindOfClass:[ToastView class]]) {
+            return subView;
+        }
+        
+    }
+    
+    return nil;
+}
+
 
 @end
