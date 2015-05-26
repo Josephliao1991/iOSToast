@@ -29,10 +29,12 @@
 - (IBAction)showToast:(UIButton *)sender {
     
 
-
-    [[JLToast makeToast] showWithString:@"My Second ViewController"
-                          withToastTime:ToastTime_Short
-                         withController:self];
+    JLToast *toast = [JLToast makeToast];
+    [toast SetToastWithString:@"My SecondViewController"
+                withToastTime:ToastTime_Short
+               withController:self];
+    
+    [toast show];
     
 }
 
