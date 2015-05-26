@@ -15,6 +15,10 @@
 		3FF485B71B020E6D007EFE4C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF485B61B020E6D007EFE4C /* Images.xcassets */; };
 		3FF485BA1B020E6D007EFE4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF485B81B020E6D007EFE4C /* LaunchScreen.xib */; };
 		3FF485C61B020E6D007EFE4C /* iOSToastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF485C51B020E6D007EFE4C /* iOSToastTests.m */; };
+		4EDF6F201B14A68500A9CAF9 /* JLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */; };
+		4EDF6F241B14AE4600A9CAF9 /* JLDynamicLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */; };
+		4EDF6F271B14BF6200A9CAF9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F261B14BF6200A9CAF9 /* SecondViewController.m */; };
+		4EDF6F2A1B14CDD800A9CAF9 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F291B14CDD800A9CAF9 /* ToastView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,14 @@
 		3FF485BF1B020E6D007EFE4C /* iOSToastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSToastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF485C41B020E6D007EFE4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF485C51B020E6D007EFE4C /* iOSToastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSToastTests.m; sourceTree = "<group>"; };
+		4EDF6F1E1B14A68500A9CAF9 /* JLToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLToast.h; sourceTree = "<group>"; };
+		4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLToast.m; sourceTree = "<group>"; };
+		4EDF6F221B14AE4600A9CAF9 /* JLDynamicLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLDynamicLabel.h; sourceTree = "<group>"; };
+		4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLDynamicLabel.m; sourceTree = "<group>"; };
+		4EDF6F251B14BF6200A9CAF9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		4EDF6F261B14BF6200A9CAF9 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		4EDF6F281B14CDD800A9CAF9 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastView.h; sourceTree = "<group>"; };
+		4EDF6F291B14CDD800A9CAF9 /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +99,9 @@
 				3FF485AB1B020E6D007EFE4C /* AppDelegate.m */,
 				3FF485B01B020E6D007EFE4C /* ViewController.h */,
 				3FF485B11B020E6D007EFE4C /* ViewController.m */,
+				4EDF6F251B14BF6200A9CAF9 /* SecondViewController.h */,
+				4EDF6F261B14BF6200A9CAF9 /* SecondViewController.m */,
+				4EDF6F211B14A68C00A9CAF9 /* JLToast */,
 				3FF485B31B020E6D007EFE4C /* Main.storyboard */,
 				3FF485B61B020E6D007EFE4C /* Images.xcassets */,
 				3FF485B81B020E6D007EFE4C /* LaunchScreen.xib */,
@@ -120,6 +135,19 @@
 				3FF485C41B020E6D007EFE4C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EDF6F211B14A68C00A9CAF9 /* JLToast */ = {
+			isa = PBXGroup;
+			children = (
+				4EDF6F1E1B14A68500A9CAF9 /* JLToast.h */,
+				4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */,
+				4EDF6F281B14CDD800A9CAF9 /* ToastView.h */,
+				4EDF6F291B14CDD800A9CAF9 /* ToastView.m */,
+				4EDF6F221B14AE4600A9CAF9 /* JLDynamicLabel.h */,
+				4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */,
+			);
+			name = JLToast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +199,7 @@
 				TargetAttributes = {
 					3FF485A21B020E6D007EFE4C = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = B8LRBM6UYQ;
 					};
 					3FF485BE1B020E6D007EFE4C = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -222,9 +251,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDF6F201B14A68500A9CAF9 /* JLToast.m in Sources */,
 				3FF485AC1B020E6D007EFE4C /* AppDelegate.m in Sources */,
 				3FF485A91B020E6D007EFE4C /* main.m in Sources */,
+				4EDF6F271B14BF6200A9CAF9 /* SecondViewController.m in Sources */,
+				4EDF6F2A1B14CDD800A9CAF9 /* ToastView.m in Sources */,
 				3FF485B21B020E6D007EFE4C /* ViewController.m in Sources */,
+				4EDF6F241B14AE4600A9CAF9 /* JLDynamicLabel.m in Sources */,
 				3FF485AF1B020E6D007EFE4C /* iOSToast.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iOSToast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iOSToast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,6 +457,7 @@
 				3FF485CB1B020E6D007EFE4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FF485CC1B020E6D007EFE4C /* Build configuration list for PBXNativeTarget "iOSToastTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +466,7 @@
 				3FF485CE1B020E6D007EFE4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

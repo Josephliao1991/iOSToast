@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "JLToast.h"
+#import "JLDynamicLabel.h"
 
 @interface ViewController ()
 
@@ -17,11 +19,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showToast:(UIButton *)sender {
+    
+
+    [[JLToast makeToast] showWithString:@"My First ViewController"
+                          withToastTime:ToastTime_Long
+                         withController:self];
+    
+}
+
+
+- (IBAction)back:(UIStoryboardSegue*)sender{
+    
 }
 
 @end
