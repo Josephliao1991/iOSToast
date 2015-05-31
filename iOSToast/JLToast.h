@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ToastView.h"
+#import "JLToastConstant.h"
+#import "JLToastStore.h"
 
 typedef NS_ENUM(NSInteger,ToastTime){
     
@@ -18,8 +21,14 @@ typedef NS_ENUM(NSInteger,ToastTime){
 
 @interface JLToast : NSObject
 
-+ (JLToast*)makeToast;
-- (void)SetToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime withController:(UIViewController*)controller;
+@property (nonatomic, assign) NSString          *string;
+@property (nonatomic, assign) ToastTime         toastTime;
+@property (nonatomic, assign) UIViewController  *controller;
+@property (nonatomic, strong) ToastView         *toastView;
+
+
++ (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime;
+
 - (void)show;
 
 @end
