@@ -7,8 +7,7 @@
 //
 
 #import "JLToast.h"
-#import "ToastView.h"
-#import "JLToastConstant.h"
+
 
 #define TOAST_SHORT   3
 #define TOAST_LONG    5
@@ -16,10 +15,7 @@
 
 @interface JLToast ()
 
-@property (nonatomic, assign) NSString          *string;
-@property (nonatomic, assign) ToastTime         toastTime;
-@property (nonatomic, assign) UIViewController  *controller;
-@property (nonatomic, strong) ToastView         *toastView;
+
 
 @end
 
@@ -28,14 +24,6 @@
 
 + (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime{
     
-//    static JLToast         *_sharedInstance = nil;
-//    static dispatch_once_t oncePredicate;
-//    
-//    dispatch_once(&oncePredicate, ^{
-//        //
-//        _sharedInstance = [[JLToast alloc]init];
-//        
-//    });
     
     JLToast *toast = [[JLToast alloc]initWithString:string withToastTime:toastTime];
     
@@ -48,18 +36,16 @@
     
     self = [super init];
     
+    [JLToastStore sharedInstance];
+    
     _string         = string;
     _toastTime      = toastTime;
     _controller     = [self currentViewController];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(releaseToast:)
-//                                                 name:kRELEASETOASTREUQEST
-//                                               object:nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kRELEASETOAST
                                                         object:nil
-                                                      userInfo:nil];
+                                                      userInfo:@{@"isToast":[NSNumber numberWithBool:YES]}];
     
     return self;
     
@@ -68,17 +54,6 @@
 
 - (void)show{
     
-//    ToastView *toastBefore = [self isToasted];
-//    if (toastBefore) {
-//        NSLog(@"AllReady Tosat");
-////        [toastBefore removeFromSuperview];
-//        [self releaseToast:toastBefore];
-//    }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(releaseToast:)
-                                                 name:kRELEASETOAST
-                                               object:nil];
     
     _toastView  = [[ToastView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)
                                       withString:_string];
@@ -90,37 +65,60 @@
     
     [_controller.view addSubview:_toastView];
     
+    [[[JLToastStore sharedInstance] toastStore] addObject:self];
+    
     [UIView animateWithDuration:0.3 animations:^{
         //
         _toastView.alpha = 0.7;
         
     } completion:^(BOOL finished) {
         //
-        [self performSelector:@selector(releaseToast:)
-                   withObject:_toastView
-                   afterDelay:_toastTime == 0 ?TOAST_SHORT  :TOAST_LONG];
-        
     }];
+    
+        
+    [self performSelector:@selector(releaseToast:)
+               withObject:nil
+               afterDelay:_toastTime == 0 ?TOAST_SHORT  :TOAST_LONG];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(releaseToast:)
+                                                 name:kRELEASETOAST
+                                               object:nil];
+
 
 }
 
-- (void)releaseToast:(UIView*)myToastView{
+- (void)releaseToast:(NSNotification*)notification{
     
-    if (myToastView) {
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            //
-            myToastView.alpha = 0;
+    
+    if (_toastView) {
+    
+        if ([[notification.userInfo valueForKey:@"isToast"] boolValue]) {
             
-        } completion:^(BOOL finished) {
-            //
-            [myToastView removeFromSuperview];
+            [[[JLToastStore sharedInstance] toastStore] removeObject:self];
+            [_toastView removeFromSuperview];
             
-        }];
-        
+            
+        }else{
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                //
+                _toastView.alpha = 0;
+                
+            } completion:^(BOOL finished) {
+                //
+                [_toastView removeFromSuperview];
+                [[[JLToastStore sharedInstance] toastStore] removeAllObjects];
+                
+            }];
+            
+        }
+
     }
     
 }
+
 
 - (void)dealloc{
     
@@ -128,19 +126,19 @@
     
 }
 
-//- (ToastView*)isToasted{
+//- (BOOL)isToasted{
 //    
 //    NSArray *subViews = [[_controller view] subviews];
-//    
+//    BOOL isToast = NO;
 //    for (id subView in subViews) {
 //        
 //        if ([subView isKindOfClass:[ToastView class]]) {
-//            return subView;
+//            isToast = YES;
+//            return isToast;
 //        }
-//        
 //    }
 //    
-//    return nil;
+//    return isToast;
 //}
 
 #pragma mark - Find Current Present ViewController
