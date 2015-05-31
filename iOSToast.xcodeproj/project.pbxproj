@@ -46,6 +46,7 @@
 		3FF485BF1B020E6D007EFE4C /* iOSToastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSToastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF485C41B020E6D007EFE4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF485C51B020E6D007EFE4C /* iOSToastTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSToastTests.m; sourceTree = "<group>"; };
+		4E3D6C121B1AFA6E00279359 /* JLToastConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLToastConstant.h; sourceTree = "<group>"; };
 		4EDF6F1E1B14A68500A9CAF9 /* JLToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLToast.h; sourceTree = "<group>"; };
 		4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLToast.m; sourceTree = "<group>"; };
 		4EDF6F221B14AE4600A9CAF9 /* JLDynamicLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLDynamicLabel.h; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 				4EDF6F291B14CDD800A9CAF9 /* ToastView.m */,
 				4EDF6F221B14AE4600A9CAF9 /* JLDynamicLabel.h */,
 				4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */,
+				4E3D6C121B1AFA6E00279359 /* JLToastConstant.h */,
 			);
 			name = JLToast;
 			sourceTree = "<group>";

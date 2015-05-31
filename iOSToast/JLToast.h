@@ -18,8 +18,8 @@ typedef NS_ENUM(NSInteger,ToastTime){
 
 @interface JLToast : NSObject
 
-+ (JLToast*)makeToast;
-- (void)SetToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime withController:(UIViewController*)controller;
++ (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime;
+
 - (void)show;
 
 @end

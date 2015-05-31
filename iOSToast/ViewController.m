@@ -32,34 +32,39 @@
 
 - (IBAction)showToast:(UIButton *)sender {
     
-    JLToast *toast = [JLToast makeToast];
-    [toast SetToastWithString:@"My FirstViewController"
-                withToastTime:ToastTime_Long
-               withController:self];
+//    JLToast *toast = [JLToast makeToast];
+//    [toast SetToastWithString:@"My FirstViewController"
+//                withToastTime:ToastTime_Long
+//               withController:self];
+//    
+//    [toast show];
     
-    [toast show];
+    [[JLToast makeToastWithString:@"My FirstViewController" withToastTime:ToastTime_Long] show];
     
 }
 
 - (IBAction)showToast2:(UIButton *)sender {
     
-    JLToast *toast = [JLToast makeToast];
-    [toast SetToastWithString:@"Show Tosat 2 "
-                withToastTime:ToastTime_Long
-               withController:self];
+//    JLToast *toast = [JLToast makeToast];
+//    [toast SetToastWithString:@"Show Tosat 2 "
+//                withToastTime:ToastTime_Long
+//               withController:self];
+//    
+//    [toast show];
     
-    [toast show];
-    
+    [[JLToast makeToastWithString:@"Show Tosat 2" withToastTime:ToastTime_Long] show];
 }
 
 - (IBAction)showToast3:(UIButton *)sender {
     
-    JLToast *toast = [JLToast makeToast];
-    [toast SetToastWithString:@"野野野野野  還是八仙好玩！！"
-                withToastTime:ToastTime_Long
-               withController:self];
+//    JLToast *toast = [JLToast makeToast];
+//    [toast SetToastWithString:@"野野野野野  還是八仙好玩！！"
+//                withToastTime:ToastTime_Long
+//               withController:self];
+//    
+//    [toast show];
     
-    [toast show];
+    [[JLToast makeToastWithString:@"野野野野野  還是八仙好玩！！" withToastTime:ToastTime_Long] show];
     
 }
 
