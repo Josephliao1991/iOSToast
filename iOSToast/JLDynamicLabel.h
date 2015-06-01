@@ -10,6 +10,6 @@
 
 @interface JLDynamicLabel : UILabel
 
-- (id)initWithFrame:(CGRect)frame withString:(NSString*)string;
++ (JLDynamicLabel*)creatLabelWithString:(NSString*)string withSize:(float)size;
 
 @end

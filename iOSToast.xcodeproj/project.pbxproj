@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F011B211B1C379A00086B68 /* JLDynamicLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F011B201B1C379A00086B68 /* JLDynamicLabel.m */; };
 		3FF485A91B020E6D007EFE4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF485A81B020E6D007EFE4C /* main.m */; };
 		3FF485AC1B020E6D007EFE4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF485AB1B020E6D007EFE4C /* AppDelegate.m */; };
 		3FF485AF1B020E6D007EFE4C /* iOSToast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FF485AD1B020E6D007EFE4C /* iOSToast.xcdatamodeld */; };
@@ -17,7 +18,6 @@
 		3FF485C61B020E6D007EFE4C /* iOSToastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF485C51B020E6D007EFE4C /* iOSToastTests.m */; };
 		4E275B081B1B07DE0071A246 /* JLToastStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E275B071B1B07DE0071A246 /* JLToastStore.m */; };
 		4EDF6F201B14A68500A9CAF9 /* JLToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */; };
-		4EDF6F241B14AE4600A9CAF9 /* JLDynamicLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */; };
 		4EDF6F271B14BF6200A9CAF9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F261B14BF6200A9CAF9 /* SecondViewController.m */; };
 		4EDF6F2A1B14CDD800A9CAF9 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF6F291B14CDD800A9CAF9 /* ToastView.m */; };
 /* End PBXBuildFile section */
@@ -33,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F011B1F1B1C379A00086B68 /* JLDynamicLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLDynamicLabel.h; sourceTree = "<group>"; };
+		3F011B201B1C379A00086B68 /* JLDynamicLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLDynamicLabel.m; sourceTree = "<group>"; };
 		3FF485A31B020E6D007EFE4C /* iOSToast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSToast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FF485A71B020E6D007EFE4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FF485A81B020E6D007EFE4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,8 +54,6 @@
 		4E3D6C121B1AFA6E00279359 /* JLToastConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLToastConstant.h; sourceTree = "<group>"; };
 		4EDF6F1E1B14A68500A9CAF9 /* JLToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLToast.h; sourceTree = "<group>"; };
 		4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLToast.m; sourceTree = "<group>"; };
-		4EDF6F221B14AE4600A9CAF9 /* JLDynamicLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLDynamicLabel.h; sourceTree = "<group>"; };
-		4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLDynamicLabel.m; sourceTree = "<group>"; };
 		4EDF6F251B14BF6200A9CAF9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		4EDF6F261B14BF6200A9CAF9 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		4EDF6F281B14CDD800A9CAF9 /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastView.h; sourceTree = "<group>"; };
@@ -148,11 +148,11 @@
 				4EDF6F1F1B14A68500A9CAF9 /* JLToast.m */,
 				4EDF6F281B14CDD800A9CAF9 /* ToastView.h */,
 				4EDF6F291B14CDD800A9CAF9 /* ToastView.m */,
-				4EDF6F221B14AE4600A9CAF9 /* JLDynamicLabel.h */,
-				4EDF6F231B14AE4600A9CAF9 /* JLDynamicLabel.m */,
 				4E275B061B1B07DE0071A246 /* JLToastStore.h */,
 				4E275B071B1B07DE0071A246 /* JLToastStore.m */,
 				4E3D6C121B1AFA6E00279359 /* JLToastConstant.h */,
+				3F011B1F1B1C379A00086B68 /* JLDynamicLabel.h */,
+				3F011B201B1C379A00086B68 /* JLDynamicLabel.m */,
 			);
 			name = JLToast;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				4EDF6F271B14BF6200A9CAF9 /* SecondViewController.m in Sources */,
 				4EDF6F2A1B14CDD800A9CAF9 /* ToastView.m in Sources */,
 				3FF485B21B020E6D007EFE4C /* ViewController.m in Sources */,
-				4EDF6F241B14AE4600A9CAF9 /* JLDynamicLabel.m in Sources */,
+				3F011B211B1C379A00086B68 /* JLDynamicLabel.m in Sources */,
 				3FF485AF1B020E6D007EFE4C /* iOSToast.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

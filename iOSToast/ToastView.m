@@ -23,8 +23,7 @@
     
     self = [super initWithFrame:frame];
     
-    UILabel *myToastLabel = [[JLDynamicLabel alloc]initWithFrame:CGRectMake(0, 0, 10, 10)
-                                                      withString:string];
+    UILabel *myToastLabel = [JLDynamicLabel creatLabelWithString:string withSize:16];
     
     self.frame = CGRectMake(0, 0, myToastLabel.frame.size.width+10, myToastLabel.frame.size.height);
     self.layer.cornerRadius = self.frame.size.height/2;
