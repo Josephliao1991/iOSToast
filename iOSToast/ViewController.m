@@ -33,18 +33,24 @@
 - (IBAction)showToast:(UIButton *)sender {
     
 
-    [[JLToast makeToastWithString:@"My FirstViewController \n ss" withToastTime:ToastTime_Long] show];
+    [[JLToast makeToastWithString:@"My FirstViewController \n Happy Piano"
+                    withToastTime:ToastTime_Long
+                    withToastSize:ToastSize_Tiny] show];
     
 }
 
 - (IBAction)showToast2:(UIButton *)sender {
     
-    [[JLToast makeToastWithString:@"Show Tosat 2" withToastTime:ToastTime_Long] show];
+    [[JLToast makeToastWithString:@"躺著玩 坐著玩 趴著玩 \n 還是八仙好玩"
+                    withToastTime:ToastTime_Long
+                    withToastSize:ToastSize_Little] show];
 }
 
 - (IBAction)showToast3:(UIButton *)sender {
     
-    [[JLToast makeToastWithString:@"野野野野野  還是八仙好玩！！" withToastTime:ToastTime_Long] show];
+    [[JLToast makeToastWithString:@"野野野野野  還是八仙好玩！！"
+                    withToastTime:ToastTime_Long
+                    withToastSize:ToastSize_Large] show];
     
 }
 

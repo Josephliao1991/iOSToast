@@ -19,20 +19,40 @@
 }
 */
 
-- (id)initWithFrame:(CGRect)frame withString:(NSString*)string{
+- (id)initWithFrame:(CGRect)frame withString:(NSString*)string withSize:(float)size{
     
     self = [super initWithFrame:frame];
     
-    UILabel *myToastLabel = [JLDynamicLabel creatLabelWithString:string withSize:16];
+    UILabel *myToastLabel = [JLDynamicLabel creatLabelWithString:string withSize:size];
     
-    self.frame = CGRectMake(0, 0, myToastLabel.frame.size.width+15, myToastLabel.frame.size.height);
+    self.frame = CGRectMake(0, 0, myToastLabel.frame.size.width+20, myToastLabel.frame.size.height);
     self.layer.cornerRadius = self.frame.size.height/2;
-    self.backgroundColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor lightGrayColor];
     self.alpha = 0;
     
     myToastLabel.center = self.center;
     
     [self addSubview:myToastLabel];
+
+    NSLayoutConstraint *constraintCenterX = [NSLayoutConstraint constraintWithItem:myToastLabel
+                                                                         attribute:NSLayoutAttributeCenterX
+                                                                         relatedBy:NSLayoutRelationEqual
+                                                                            toItem:self
+                                                                         attribute:NSLayoutAttributeCenterX
+                                                                        multiplier:1.0
+                                                                          constant:0];
+    
+    NSLayoutConstraint *constraintCenterY = [NSLayoutConstraint constraintWithItem:myToastLabel
+                                                                        attribute:NSLayoutAttributeCenterY
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:self
+                                                                        attribute:NSLayoutAttributeCenterY
+                                                                       multiplier:1.0
+                                                                         constant:0];
+                                             
+    [self addConstraint:constraintCenterX];
+    [self addConstraint:constraintCenterY];
+
     
     return self;
     

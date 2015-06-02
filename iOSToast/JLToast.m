@@ -9,9 +9,13 @@
 #import "JLToast.h"
 
 
-#define TOAST_SHORT   3
-#define TOAST_LONG    5
+#define TOAST_TIME_SHORT   3
+#define TOAST_TIME_LONG    5
 
+#define TOAST_SIZE_TINY    9
+#define TOAST_SIZE_LITTLE  11
+#define TOAST_SIZE_MIDDLE  14
+#define TOAST_SIZE_LARGE   16
 
 @interface JLToast ()
 
@@ -22,26 +26,23 @@
 @implementation JLToast
 
 
-+ (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime{
++ (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime withToastSize:(ToastSize)toastSize{
     
     
-    JLToast *toast = [[JLToast alloc]initWithString:string withToastTime:toastTime];
+    JLToast *toast = [[JLToast alloc]initWithString:string withToastTime:toastTime withToastSize:toastSize];
     
     
     return toast;
     
 }
 
-- (id)initWithString:(NSString*)string withToastTime:(ToastTime)toastTime{
+- (id)initWithString:(NSString*)string withToastTime:(ToastTime)toastTime withToastSize:(ToastSize)toastSize{
     
     self = [super init];
     
-    [JLToastStore sharedInstance];
-    
     _string         = string;
     _toastTime      = toastTime;
-    _controller     = [self currentViewController];
-    
+    _toastSize      = toastSize;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kRELEASETOAST
                                                         object:nil
@@ -54,18 +55,56 @@
 
 - (void)show{
     
+    float StringSize = 0;
+    switch (_toastSize) {
+        case ToastSize_Tiny:
+            StringSize = TOAST_SIZE_TINY;
+            break;
+        case ToastSize_Little:
+            StringSize = TOAST_SIZE_LITTLE;
+            break;
+        case ToastSize_Middle:
+            StringSize = TOAST_SIZE_MIDDLE;
+            break;
+        case ToastSize_Large:
+            StringSize = TOAST_SIZE_LARGE;
+            break;
+        default:
+            break;
+    }
     
     _toastView  = [[ToastView alloc]initWithFrame:CGRectMake(0, 0, 10, 10)
-                                      withString:_string];
+                                       withString:_string
+                                         withSize:StringSize];
     
-    _toastView.frame = CGRectMake(_controller.view.frame.size.width/2 - _toastView.frame.size.width/2,
-                                   _controller.view.frame.size.height*0.8,
-                                   _toastView.frame.size.width,
-                                   _toastView.frame.size.height);
+//    _toastView.frame = CGRectMake([self currentViewController].view.frame.size.width/2 - _toastView.frame.size.width/2,
+//                                   [self currentViewController].view.frame.size.height*0.8,
+//                                   _toastView.frame.size.width,
+//                                   _toastView.frame.size.height);
     
-    [_controller.view addSubview:_toastView];
     
-    [[[JLToastStore sharedInstance] toastStore] addObject:self];
+    [_toastView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [[self currentViewController].view addSubview:_toastView];
+
+    NSLayoutConstraint *constraintCenterX = [NSLayoutConstraint constraintWithItem:_toastView
+                                                                  attribute:NSLayoutAttributeCenterX
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:[self currentViewController].view
+                                                                  attribute:NSLayoutAttributeCenterX
+                                                                 multiplier:1.0
+                                                                   constant:0];
+    
+    CGFloat originY = -([self currentViewController].view.frame.size.height*0.15-_toastView.frame.size.height/2);
+    NSLayoutConstraint *constraintBottom = [NSLayoutConstraint constraintWithItem:_toastView
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:[self currentViewController].view
+                                                                  attribute:NSLayoutAttributeBottom
+                                                                 multiplier:1.0
+                                                                   constant:originY];
+    
+    [[self currentViewController].view addConstraint:constraintCenterX];
+    [[self currentViewController].view addConstraint:constraintBottom];
     
     [UIView animateWithDuration:0.3 animations:^{
         //
@@ -78,7 +117,7 @@
         
     [self performSelector:@selector(releaseToast:)
                withObject:nil
-               afterDelay:_toastTime == 0 ?TOAST_SHORT  :TOAST_LONG];
+               afterDelay:_toastTime == 0 ?TOAST_TIME_SHORT  :TOAST_TIME_LONG];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -96,7 +135,6 @@
     
         if ([[notification.userInfo valueForKey:@"isToast"] boolValue]) {
             
-            [[[JLToastStore sharedInstance] toastStore] removeObject:self];
             [_toastView removeFromSuperview];
             
             
@@ -109,7 +147,6 @@
             } completion:^(BOOL finished) {
                 //
                 [_toastView removeFromSuperview];
-                [[[JLToastStore sharedInstance] toastStore] removeAllObjects];
                 
             }];
             

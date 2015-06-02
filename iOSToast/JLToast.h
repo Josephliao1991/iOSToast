@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "ToastView.h"
 #import "JLToastConstant.h"
-#import "JLToastStore.h"
+
 
 typedef NS_ENUM(NSInteger,ToastTime){
     
@@ -19,15 +19,24 @@ typedef NS_ENUM(NSInteger,ToastTime){
     
 };
 
+typedef NS_ENUM(NSInteger,ToastSize){
+    
+    ToastSize_Tiny,
+    ToastSize_Little,
+    ToastSize_Middle,
+    ToastSize_Large,
+    
+};
+
 @interface JLToast : NSObject
 
 @property (nonatomic, assign) NSString          *string;
 @property (nonatomic, assign) ToastTime         toastTime;
-@property (nonatomic, assign) UIViewController  *controller;
+@property (nonatomic, assign) ToastSize         toastSize;
 @property (nonatomic, strong) ToastView         *toastView;
 
 
-+ (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime;
++ (JLToast*)makeToastWithString:(NSString*)string withToastTime:(ToastTime)toastTime withToastSize:(ToastSize)toastSize;
 
 - (void)show;
 
