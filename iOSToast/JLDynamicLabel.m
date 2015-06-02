@@ -17,19 +17,31 @@
     // Drawing code
 }
 */
-- (id)initWithFrame:(CGRect)frame withString:(NSString*)string{
+
++ (JLDynamicLabel*)creatLabelWithString:(NSString*)string withSize:(float)size{
+    
+    JLDynamicLabel *label = [[JLDynamicLabel alloc]initWithFrame:CGRectMake(0, 0, 0, 0) WithString:string withSize:size];
+    
+    return label;
+}
+
+- (id)initWithFrame:(CGRect)frame WithString:(NSString*)string withSize:(float)size{
     
     self = [super initWithFrame:frame];
     
     self.text               = string;
     self.textAlignment      = NSTextAlignmentCenter;
+    self.font = [UIFont systemFontOfSize:size];
+    
+    [self setNumberOfLines:0];
+    self.lineBreakMode =NSLineBreakByWordWrapping;
     
     CGRect expectedLabelSize = [string boundingRectWithSize:self.frame.size
-                                                    options:NSStringDrawingTruncatesLastVisibleLine
+                                                    options:NSStringDrawingUsesLineFragmentOrigin
                                                  attributes:@{NSFontAttributeName: [self font]}
                                                     context:nil];
     
-    NSLog(@"Label Size W=%f H=%f",expectedLabelSize.size.width,expectedLabelSize.size.height);
+//    NSLog(@"Label Size W=%f H=%f",expectedLabelSize.size.width,expectedLabelSize.size.height);
     
     self.frame = expectedLabelSize;
     

@@ -28,7 +28,9 @@
 
 - (IBAction)showToast:(UIButton *)sender {
     
-    [[JLToast makeToastWithString:@"My SecondViewController" withToastTime:ToastTime_Short]show];
+    [[JLToast makeToastWithString:@"My SecondViewController"
+                    withToastTime:ToastTime_Short
+                    withToastSize:ToastSize_Middle]show];
 
 }
 

@@ -10,6 +10,6 @@
 
 @interface ToastView : UIView
 
-- (id)initWithFrame:(CGRect)frame withString:(NSString*)string;
+- (id)initWithFrame:(CGRect)frame withString:(NSString*)string withSize:(float)size;
 
 @end
