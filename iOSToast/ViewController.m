@@ -33,7 +33,7 @@
 - (IBAction)showToast:(UIButton *)sender {
     
 
-    [[JLToast makeToastWithString:@"My FirstViewController" withToastTime:ToastTime_Long] show];
+    [[JLToast makeToastWithString:@"My FirstViewController \n ss" withToastTime:ToastTime_Long] show];
     
 }
 

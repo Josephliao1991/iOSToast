@@ -25,7 +25,7 @@
     
     UILabel *myToastLabel = [JLDynamicLabel creatLabelWithString:string withSize:16];
     
-    self.frame = CGRectMake(0, 0, myToastLabel.frame.size.width+10, myToastLabel.frame.size.height);
+    self.frame = CGRectMake(0, 0, myToastLabel.frame.size.width+15, myToastLabel.frame.size.height);
     self.layer.cornerRadius = self.frame.size.height/2;
     self.backgroundColor = [UIColor grayColor];
     self.alpha = 0;

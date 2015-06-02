@@ -33,8 +33,11 @@
     self.textAlignment      = NSTextAlignmentCenter;
     self.font = [UIFont systemFontOfSize:size];
     
+    [self setNumberOfLines:0];
+    self.lineBreakMode =NSLineBreakByWordWrapping;
+    
     CGRect expectedLabelSize = [string boundingRectWithSize:self.frame.size
-                                                    options:NSStringDrawingTruncatesLastVisibleLine
+                                                    options:NSStringDrawingUsesLineFragmentOrigin
                                                  attributes:@{NSFontAttributeName: [self font]}
                                                     context:nil];
     
